@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: consumer-client
+
+  rabbitmq:
+    host: 192.168.88.130
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: powernode
+    ## 配置手动确认
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+
+
+logging:
+  level:
+    org.hechuans: debug

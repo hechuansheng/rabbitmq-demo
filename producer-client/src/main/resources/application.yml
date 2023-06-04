@@ -1,0 +1,52 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: producer-client
+
+  rabbitmq:
+    host: 192.168.88.130
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: powernode
+    ##开启confirm确认模式（生产者到交换机）：
+    publisher-confirm-type: correlated
+    ##开启return返回模式（交换机到队列）：
+    publisher-returns: true
+    ##集群
+    #addresses: 192.168.88.130:5672,192.168.88.131:5672,192.168.88.132:5672
+
+hechuans:
+  rabbitmq:
+    fanout:
+      exchange-name: exchange.fanout.demo
+      queue-a-name: queue.fanout.demo1
+      queue-b-name: queue.fanout.demo2
+    direct:
+      exchange-name: exchange.direct.demo
+      queue-a-name: queue.direct.demo1
+      queue-b-name: queue.direct.demo2
+    topic:
+      exchange-name: exchange.topic.demo
+      queue-a-name: queue.topic.demo1
+      queue-b-name: queue.topic.demo2
+    dlx:
+      exchange-normal-name: exchange.dlx.normal
+      queue-normal-name: queue.dlx.normal
+      exchange-dlx-name: exchange.dlx.dlx
+      queue-dlx-name: queue.dlx.dlx
+    delay:
+      exchange-name: exchange.delay.normal
+      queue-normal-name: queue.delay.normal
+      queue-delay-name: queue.delay.delay
+    confirm:
+      exchange-name: exchange.confirm.demo
+      exchange-alternate-name: exchange.confirm.alternate
+      queue-name: queue.confirm.demo
+      queue-alternate-name: queue.confirm.alternate
+
+logging:
+  level:
+    org.hechuans: debug

@@ -1,0 +1,3 @@
+# Project exclude paths
+/consumer-client/target/
+/producer-client/target/
